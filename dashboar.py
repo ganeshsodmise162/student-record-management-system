@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 from course import courseClass
 from student import studentClass
 from result import resultClass
+from report import reportClass
 class RMS:
     def __init__(self, root):
         self.root = root
@@ -31,7 +32,7 @@ class RMS:
         btn_result = Button(M_Frame, text="Result", font=("goudy old style", 15, "bold"), 
                             bg="#0b5377", fg="white", cursor="hand2",command=self.add_result).place(x=460, y=5, width=200, height=40)
         btn_view = Button(M_Frame, text="View Student Result", font=("goudy old style", 15, "bold"), 
-                          bg="#0b5377", fg="white", cursor="hand2").place(x=680, y=5, width=200, height=40)
+                          bg="#0b5377", fg="white", cursor="hand2",command=self.add_report).place(x=680, y=5, width=200, height=40)
         btn_logout = Button(M_Frame, text="Logout", font=("goudy old style", 15, "bold"), 
                             bg="#0b5377", fg="white", cursor="hand2").place(x=900, y=5, width=200, height=40)
         btn_exit = Button(M_Frame, text="Exit", font=("goudy old style", 15, "bold"), 
@@ -77,6 +78,11 @@ class RMS:
     def add_result(self):
         self.new_win=Toplevel(self.root)
         self.new_obj=resultClass(self.new_win)
+
+    def add_report(self):
+        self.new_win=Toplevel(self.root)
+        self.new_obj=reportClass(self.new_win)
+
 
 
 if __name__ == "__main__":
